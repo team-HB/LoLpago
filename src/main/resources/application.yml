@@ -1,6 +1,0 @@
-spring:
-  data:
-    mongodb:
-      uri: mongodb+srv://<name>:<pw>@gcp01.uokpo.gcp.mongodb.net/LOLpago?retryWrites=true&w=majority
-server:
-  port: 7849
