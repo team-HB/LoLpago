@@ -6,6 +6,9 @@ const userStore = useUserStore()
 
 const name = ref(userStore.savedName)
 const email = ref(userStore.savedEmail)
+const activeTab = ref('0')
+const multiline = ref(false)
+const showBooks = ref(false)
 
 const choosePlans = () => {
   if (name.value && email.value) {
@@ -31,6 +34,48 @@ const choosePlans = () => {
 
     <div class="py-4" />
 
+    <section>
+      <p>
+        <o-button @click="activeTab = 1">
+          Set Music
+        </o-button>
+      </p>
+      <p>
+        <o-switch v-model="showBooks">
+          Show Books item
+        </o-switch>
+        <o-switch v-model="multiline">
+          Multiline
+        </o-switch>
+      </p>
+      <o-tabs v-model="activeTab" :multiline="multiline">
+        <o-tab-item value="0" label="Pictures">
+          Lorem ipsum dolor sit amet.
+        </o-tab-item>
+
+        <o-tab-item :value="1" label="Music">
+          Lorem <br />
+          ipsum <br />
+          dolor <br />
+          sit <br />
+          amet.
+        </o-tab-item>
+
+        <o-tab-item value="2" :visible="showBooks" label="Books">
+          What light is light, if Silvia be not seen? <br />
+          What joy is joy, if Silvia be not by— <br />
+          Unless it be to think that she is by <br />
+          And feed upon the shadow of perfection? <br />
+          Except I be by Silvia in the night, <br />
+          There is no music in the nightingale.
+        </o-tab-item>
+
+        <o-tab-item value="3" label="Videos" icon="video" disabled>
+          Nunc nec velit nec libero vestibulum eleifend. Curabitur pulvinar congue luctus. Nullam hendrerit iaculis augue vitae ornare. Maecenas vehicula pulvinar tellus, id sodales
+          felis lobortis eget.
+        </o-tab-item>
+      </o-tabs>
+    </section>
     <div>
       <label class="block mb-1" text="sm gray-500" for="inputName">{{ t('intro.whats-your-name') }}</label>
       <v-input

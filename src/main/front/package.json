@@ -10,6 +10,7 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@oruga-ui/oruga-next": "^0.5.3",
     "@vueuse/core": "^6.7.3",
     "@vueuse/head": "^0.6.0",
     "nprogress": "^0.2.0",
@@ -48,7 +49,7 @@
     "vite-plugin-pages": "^0.18.1",
     "vite-plugin-pwa": "^0.11.3",
     "vite-plugin-vue-layouts": "^0.4.1",
-    "vite-plugin-windicss": "^1.4.12",
+    "vite-plugin-windicss": "^1.7.0",
     "vite-ssg": "^0.15.5",
     "vue-tsc": "^0.3.0"
   }

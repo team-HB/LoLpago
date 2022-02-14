@@ -2,33 +2,38 @@ package com.hb.lolpago.champions.entity;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("champions")
-public record Champions(@Id String _id, String name, String championId, Integer cost, List<String> traits) {
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+@Getter
+@NoArgsConstructor
+@Document(collection = "champions")
+public class Champions {
 
-    @PersistenceConstructor
-    public Champions {}
+    // @Transient
+    // public static final String SEQUENCE_NAME = "champions_sequence";
 
-    public Champions(String name, String championId, Integer cost, List<String> traits) {
-        this(null, name, championId, cost, traits);
-    }
-    // @Id
-    // private ObjectId _id;
-    // private String name;
-    // private String championId;
-    // private Integer cost;
-    // private List<String> traits;
+    @Id
+    private String id;
+    private String name;
+    private String championId;
+    private int cost;
+    private List<String> traits;
 
-    // public Champions(ObjectId _id, String name, String championId, String cost, ArrayList<String> traits) {
-    //     super();
-    //     this._id = _id;
-    //     this.name = name;
-    //     this.championId = championId;
-    //     this.cost = cost;
-    //     this.traits = traits;
+    // public void setId(Long id) {
+    //     this.id = id;
     // }
 
+    @Builder
+    public Champions(String name, String championId, int cost, List<String> traits) {
+        this.name = name;
+        this.championId = championId;
+        this.cost = cost;
+        this.traits = traits;
+    }
 }
