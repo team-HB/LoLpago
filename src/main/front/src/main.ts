@@ -9,11 +9,12 @@ import 'virtual:windi-base.css'
 import 'virtual:windi-components.css'
 // your custom styles here
 import './common/styles/main.css'
+
 // windicss utilities should be the last style import
 import 'virtual:windi-utilities.css'
 // windicss devtools support (dev only)
 import 'virtual:windi-devtools'
-
+import '@oruga-ui/oruga-next/dist/oruga.css'
 const routes = setupLayouts(generatedRoutes)
 
 // https://github.com/antfu/vite-ssg
